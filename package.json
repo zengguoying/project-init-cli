@@ -4,7 +4,15 @@
   "description": "项目初始化脚手架",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon ./index.ts",
+    "serve": "ts-node ./index.ts",
+    "tsc": "tsc",
+    "build": "rimraf dist && tsc && ts-node build/index.ts",
+    "commit": "git add . && git-cz ",
+    "update-version": "ts-node build/version.ts",
+    "commit-version": "npm run update-version && git add . && git-cz",
+    "prepare": "husky install",
+    "release": "rimraf dist && tsc && ts-node build/index.ts"
   },
   "repository": {
     "type": "git",
